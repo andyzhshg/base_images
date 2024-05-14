@@ -31,8 +31,8 @@ RUN mkdir -p /home/$SSH_USERNAME/.ssh && chown $SSH_USERNAME:$SSH_USERNAME /home
     && echo "PermitRootLogin no" >> /etc/ssh/sshd_config
 
 # Copy the script to configure the user's password and authorized keys
-COPY entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/entrypoint.sh
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
 # 使用自定义的 entrypoint 启动脚本
 CMD ["/entrypoint.sh"]
